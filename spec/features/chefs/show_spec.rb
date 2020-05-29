@@ -17,7 +17,16 @@ RSpec.describe "When I visit a chef's show page" do
   it "I see the name of that chefAnd I see a link to view a list of all ingredients" do
     visit "/chefs/#{@chef.id}"
 
-   
+    expect(page).to have_content(@chef.name)
+
+    click_link("See all ingredients")
+    expect(current_path).to eq("/chefs/:id/ingredients")
+
+    expect(page).to have_content("A Unique List of Ingredients") 
+    expect(page).to have_content(@lettuce.name)
+    expect(page).to have_content(@tomato.name)
+    expect(page).to have_content(@bacon.name)
+
   end
 end
 
