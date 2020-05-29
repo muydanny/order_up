@@ -21,9 +21,15 @@ RSpec.describe "When I visit a dish's show page" do
     expect(page).to have_content(@lettuce.name)
     expect(page).to have_content(@tomato.name)
     expect(page).to have_content(@bacon.name)
+    expect(page).to have_content("Total Calorie Count: 220")
     expect(page).to have_content("Created by: #{@chef.name}")
   end
 end
+
+
+# As a visitor
+# When I visit a dish's show page
+# I see the total calorie count for that dish.
 
 # As a visitor
 # When I visit a dish's show page
